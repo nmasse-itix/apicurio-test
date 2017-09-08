@@ -1,1 +1,143 @@
-{"swagger":"2.0","info":{"title":"Mockup","description":"A simple API Mock","version":"1.0.0"}}
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Mockup",
+    "description": "A simple API Mock",
+    "contact": {
+      "name": "Nicolas MassÃ©",
+      "url": "https://github.com/nmasse-itix/API-Mockup",
+      "email": "nicolas.masse@itix.fr"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/things/": {
+      "get": {
+        "summary": "Get all things",
+        "description": "Get all the things.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "#/definitions/PersistedThing"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a thing",
+        "description": "Create a thing by providing the JSON payload.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Thing"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PersistedThing"
+            }
+          }
+        }
+      }
+    },
+    "/things/{id}": {
+      "get": {
+        "summary": "Get a thing by id",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PersistedThing"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a thing",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PersistedThing"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PersistedThing"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a thing",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PersistedThing"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "The thing id",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "Thing": {
+      "title": "Root Type for Thing",
+      "description": "The root of the Thing type's schema.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        }
+      }
+    },
+    "PersistedThing": {
+      "title": "Root Type for Thing",
+      "description": "The root of the Thing type's schema.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The thing id",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
