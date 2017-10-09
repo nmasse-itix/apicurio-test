@@ -4,7 +4,7 @@
     "title": "Mockup",
     "description": "A simple API Mock",
     "contact": {
-      "name": "Nicolas MassÃ©",
+      "name": "Nicolas MassÃÂ©",
       "url": "https://github.com/nmasse-itix/API-Mockup",
       "email": "nicolas.masse@itix.fr"
     },
@@ -25,7 +25,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "#/definitions/PersistedThing"
+                "$ref": "#/definitions/PersistedThing"
               }
             }
           }
